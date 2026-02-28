@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 const AboutSection = () => {
   const stats = [
-    { value: "5+", label: "Years Experience" },
-    { value: "50+", label: "Projects Completed" },
-    { value: "20+", label: "ML Models Deployed" },
-    { value: "10M+", label: "Data Points Processed" },
+    { value: "🎓", label: "CS Graduate" },
+    { value: "🔬", label: "ML Enthusiast" },
+    { value: "📊", label: "Data Explorer" },
+    { value: "🚀", label: "Quick Learner" },
   ];
 
   return (
@@ -27,17 +27,16 @@ const AboutSection = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm a Data Scientist passionate about leveraging machine learning
-                and statistical analysis to solve real-world problems. With a
-                strong foundation in mathematics and computer science, I
-                specialize in building end-to-end data pipelines and predictive
-                models.
+                I'm an aspiring Data Scientist with a strong foundation in
+                mathematics, statistics, and programming. I'm passionate about
+                machine learning and enjoy building projects that turn data into
+                actionable insights.
               </p>
               <p>
-                My work spans across NLP, computer vision, time series
-                forecasting, and recommendation systems. I believe in
-                data-driven decision making and communicating complex findings
-                through clear, compelling visualizations.
+                I've explored NLP, computer vision, and data visualization
+                through academic projects and self-learning. I believe in
+                continuous growth, hands-on experimentation, and communicating
+                findings through clear, compelling stories.
               </p>
             </div>
 

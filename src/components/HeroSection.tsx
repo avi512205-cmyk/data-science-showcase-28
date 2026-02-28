@@ -104,8 +104,8 @@ const HeroSection = () => {
               transition={{ delay: 0.55 }}
               className="text-muted-foreground max-w-md leading-relaxed"
             >
-              Turning raw data into actionable insights. I build predictive
-              models, craft visualizations, and uncover hidden patterns.
+              Aspiring Data Scientist eager to turn raw data into
+              meaningful insights. Passionate about ML, visualizations, and solving real-world problems.
             </motion.p>
 
             {/* CTA + Socials row */}
@@ -175,27 +175,26 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Stat card 1 */}
+              {/* Passion card */}
               <motion.div
                 whileHover={{ y: -2 }}
                 className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-4 flex flex-col justify-between"
               >
-                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">Experience</span>
+                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">Focus</span>
                 <div>
-                  <span className="text-3xl font-bold text-primary font-mono">5+</span>
-                  <span className="text-xs text-muted-foreground ml-1">years</span>
+                  <span className="text-lg font-bold text-primary font-mono">ML & AI</span>
                 </div>
               </motion.div>
 
-              {/* Stat card 2 */}
+              {/* Learning card */}
               <motion.div
                 whileHover={{ y: -2 }}
                 className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-4 flex flex-col justify-between"
               >
-                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">Projects</span>
-                <div>
-                  <span className="text-3xl font-bold text-primary font-mono">50+</span>
-                  <span className="text-xs text-muted-foreground ml-1">shipped</span>
+                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">Status</span>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="text-sm font-bold text-primary font-mono">Learning</span>
                 </div>
               </motion.div>
 
