@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, FileText, ArrowDown, Sparkles } from "lucide-react";
 import profileImg from "@/assets/profile.png";
 
 const roles = [
@@ -45,78 +45,54 @@ const HeroSection = () => {
   }, [text, isDeleting, roleIndex]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-grid bg-gradient-radial overflow-hidden">
-      {/* Floating particles */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 rounded-full bg-primary/40"
-          animate={{
-            x: [0, Math.random() * 200 - 100],
-            y: [0, Math.random() * -300],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 4 + Math.random() * 3,
-            repeat: Infinity,
-            delay: i * 0.8,
-          }}
-          style={{
-            left: `${20 + i * 12}%`,
-            top: `${60 + Math.random() * 20}%`,
-          }}
-        />
-      ))}
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background layers */}
+      <div className="absolute inset-0 bg-grid opacity-40" />
+      <div className="absolute inset-0 bg-gradient-radial" />
+      
+      {/* Animated accent blobs */}
+      <motion.div
+        animate={{ x: [0, 30, 0], y: [0, -20, 0], scale: [1, 1.1, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 right-[15%] w-72 h-72 bg-primary/[0.07] rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{ x: [0, -20, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-20 left-[10%] w-60 h-60 bg-accent/[0.07] rounded-full blur-3xl"
+      />
 
-      <div className="container relative z-10 px-4">
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 max-w-4xl mx-auto">
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="flex-shrink-0"
-          >
-            <div className="relative">
-              {/* Glow ring */}
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/40 to-accent/30 blur-md" />
-              <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full border-2 border-primary/30 overflow-hidden border-glow">
-                <img
-                  src={profileImg}
-                  alt="Profile photo"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Status dot */}
-              <div className="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-primary border-2 border-background" />
-            </div>
-          </motion.div>
-
-          {/* Text Content */}
-          <div className="text-center md:text-left">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+      <div className="container relative z-10 px-4 py-20">
+        <div className="grid lg:grid-cols-12 gap-6 max-w-6xl mx-auto items-center">
+          
+          {/* Left content — spans 7 cols */}
+          <div className="lg:col-span-7 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="font-mono text-primary mb-3 text-sm tracking-widest uppercase"
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm"
             >
-              {">"} Hello, World
-            </motion.p>
+              <Sparkles className="w-3 h-3 text-primary" />
+              <span className="font-mono text-xs text-primary">Available for work</span>
+            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-4xl md:text-6xl font-bold mb-4 tracking-tight"
+              transition={{ delay: 0.3 }}
+              className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]"
             >
-              I'm <span className="text-primary text-glow">Your Name</span>
+              Your
+              <br />
+              <span className="text-primary text-glow">Name</span>
             </motion.h1>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="font-mono text-lg md:text-xl text-muted-foreground mb-5 h-7"
+              transition={{ delay: 0.45 }}
+              className="font-mono text-lg text-muted-foreground h-7"
             >
               <span className="text-secondary-foreground">{text}</span>
               <span className="text-primary animate-blink">|</span>
@@ -125,60 +101,136 @@ const HeroSection = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-muted-foreground max-w-lg mb-7 leading-relaxed text-sm"
+              transition={{ delay: 0.55 }}
+              className="text-muted-foreground max-w-md leading-relaxed"
             >
-              Turning raw data into actionable insights. I build predictive models,
-              craft visualizations, and uncover patterns hidden in complex datasets.
+              Turning raw data into actionable insights. I build predictive
+              models, craft visualizations, and uncover hidden patterns.
             </motion.p>
 
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex items-center gap-3 mb-7 justify-center md:justify-start"
-            >
-              {socials.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-10 h-10 rounded-lg border border-border bg-card/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </motion.div>
-
-            {/* CTA Buttons */}
+            {/* CTA + Socials row */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex gap-4 justify-center md:justify-start"
+              transition={{ delay: 0.65 }}
+              className="flex flex-wrap items-center gap-4 pt-2"
             >
               <a
                 href="#projects"
-                className="px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-md hover:opacity-90 transition-opacity"
+                className="px-6 py-3 bg-primary text-primary-foreground font-mono text-sm rounded-lg hover:opacity-90 transition-opacity"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 border border-primary/30 text-primary font-mono text-sm rounded-md hover:bg-primary/10 transition-colors"
+                className="px-6 py-3 border border-border text-foreground font-mono text-sm rounded-lg hover:border-primary/40 hover:text-primary transition-colors"
               >
                 Contact Me
               </a>
+
+              <div className="hidden sm:block w-px h-8 bg-border mx-1" />
+
+              <div className="flex gap-2">
+                {socials.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-9 h-9 rounded-lg border border-border/60 bg-background/40 backdrop-blur-sm flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-200"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
             </motion.div>
           </div>
-        </div>
-      </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+          {/* Right bento — spans 5 cols */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.7 }}
+            className="lg:col-span-5"
+          >
+            <div className="grid grid-cols-2 gap-3">
+              {/* Profile image — full width top */}
+              <div className="col-span-2 relative group">
+                <div className="rounded-2xl overflow-hidden border border-border/60 bg-card/40 backdrop-blur-sm p-2">
+                  <div className="rounded-xl overflow-hidden aspect-[16/10] relative">
+                    <img
+                      src={profileImg}
+                      alt="Profile photo"
+                      className="w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                        <span className="font-mono text-xs text-primary/80">data_scientist.py</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Stat card 1 */}
+              <motion.div
+                whileHover={{ y: -2 }}
+                className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-4 flex flex-col justify-between"
+              >
+                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">Experience</span>
+                <div>
+                  <span className="text-3xl font-bold text-primary font-mono">5+</span>
+                  <span className="text-xs text-muted-foreground ml-1">years</span>
+                </div>
+              </motion.div>
+
+              {/* Stat card 2 */}
+              <motion.div
+                whileHover={{ y: -2 }}
+                className="rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-4 flex flex-col justify-between"
+              >
+                <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-wider">Projects</span>
+                <div>
+                  <span className="text-3xl font-bold text-primary font-mono">50+</span>
+                  <span className="text-xs text-muted-foreground ml-1">shipped</span>
+                </div>
+              </motion.div>
+
+              {/* Tech strip */}
+              <div className="col-span-2 rounded-2xl border border-border/60 bg-card/40 backdrop-blur-sm p-3 overflow-hidden">
+                <div className="flex gap-2 overflow-hidden">
+                  {["Python", "TensorFlow", "PyTorch", "SQL", "Spark", "AWS"].map((t) => (
+                    <span
+                      key={t}
+                      className="flex-shrink-0 px-2.5 py-1 rounded-md bg-secondary/60 border border-border/40 font-mono text-[10px] text-muted-foreground"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <ArrowDown className="w-4 h-4 text-muted-foreground/50" />
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
