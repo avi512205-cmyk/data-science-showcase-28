@@ -132,7 +132,7 @@ const ProjectsSection = () => {
             {"// projects"}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Featured <span className="text-primary">Work</span>
+            My <span className="text-primary">Projects</span>
           </h2>
 
           {/* Filter tabs */}
