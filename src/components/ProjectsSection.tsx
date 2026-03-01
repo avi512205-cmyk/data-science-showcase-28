@@ -128,15 +128,15 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-mono text-primary text-sm mb-2 tracking-wider">
+          <p className="font-mono text-primary text-sm mb-2 tracking-wider text-center">
             {"// projects"}
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
             My <span className="text-primary">Projects</span>
           </h2>
 
           {/* Filter tabs */}
-          <div className="flex gap-2 mb-12 flex-wrap">
+          <div className="flex gap-2 mb-12 flex-wrap justify-center">
             {categories.map((cat) => (
               <button
                 key={cat}
