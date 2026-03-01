@@ -10,7 +10,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-24 px-4">
-      <div className="container max-w-5xl">
+      <div className="container max-w-5xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
